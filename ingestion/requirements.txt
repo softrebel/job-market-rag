@@ -1,0 +1,14 @@
+fastapi
+sqlalchemy
+psycopg[binary]
+alembic
+
+celery
+redis
+
+beautifulsoup4
+requests
+
+pydantic-settings
+
+python-dotenv
