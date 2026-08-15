@@ -121,7 +121,7 @@ class JobinjaCrawler(BaseCrawler):
         while True:
             # TODO: Implement since logic later. For now, crawl just 10 pages.
             # TODO: Debug only 1 page
-            if page >= 2:
+            if page >= 3:
                 break
             logger.info("Crawling Jobinja page %s", page)
             jobs_params = {"page": page, "sort_by": "published_at_desc"}
