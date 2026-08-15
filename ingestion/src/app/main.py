@@ -78,12 +78,12 @@ def main():
             for extractor in enabled_extractors:
                 logger.info("Running %s", extractor.source_name)
 
-                # TODO: Debug Just 3 items for each extractor, then remove it.
+                # TODO: Debug Just 30 items for each extractor, then remove it.
                 cnt = 0
                 for job in extractor.iter_raw_documents():
                     pipeline.run(job)
                     cnt += 1
-                    if cnt >= 3:
+                    if cnt >= 50:
                         break
 
         # i = 0

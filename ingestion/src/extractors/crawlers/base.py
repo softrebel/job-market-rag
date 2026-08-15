@@ -46,7 +46,7 @@ class BaseCrawler(BaseExtractor):
                     # headers = {**headers, "cookie": f"__arcsjs={hash};"}
                     self.client.cookies.set("__arcsjs", hash)
                     headers = self.headers
-                    response = self.request(
+                    resp = self.request(
                         method=method,
                         url=url,
                         headers=headers,
@@ -62,7 +62,7 @@ class BaseCrawler(BaseExtractor):
                     self.client.cookies.set("__arcsjs", hash)
                     # headers = {**headers, "cookie": f"__arcsjs={hash};"}
                     headers = self.headers
-                    response = self.request(
+                    resp = self.request(
                         method=method,
                         url=url,
                         headers=headers,
@@ -71,7 +71,7 @@ class BaseCrawler(BaseExtractor):
                     )
 
                 return resp.text
-            except httpx.RequestException as exc:
+            except httpx._exceptions.RequestError as exc:
                 last_error = exc
                 time.sleep(self.request_delay_seconds * (attempt + 1))
         raise RuntimeError(
